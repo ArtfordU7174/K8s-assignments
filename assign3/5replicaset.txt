@@ -1,0 +1,10 @@
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign3$ kubectl apply -f Deployment.yml 
+deployment.apps/nginx-deployment configured
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign3$ kubectl get po -n intellipaat
+NAME                               READY   STATUS    RESTARTS       AGE
+nginx-deployment-8d49d488c-bx67q   1/1     Running   0              36s
+nginx-deployment-8d49d488c-f5c4c   1/1     Running   1 (154m ago)   4h22m
+nginx-deployment-8d49d488c-hn8gq   1/1     Running   1 (154m ago)   4h22m
+nginx-deployment-8d49d488c-mbrdb   1/1     Running   0              36s
+nginx-deployment-8d49d488c-xvzp5   1/1     Running   1 (154m ago)   4h22m
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign3$ 
