@@ -1,0 +1,6 @@
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign2$ kubectl apply -f NodePort.yml  
+service/nginx-nodeport created
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign2$ kubectl get svc -n intellipaat
+NAME             TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+nginx-nodeport   NodePort   10.105.53.95   <none>        80:30007/TCP   55s
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign2$ 
