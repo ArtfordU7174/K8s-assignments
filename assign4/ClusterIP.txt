@@ -1,0 +1,5 @@
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign4$ kubectl get svc -n intellipaat
+NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+nginx-clusterip   ClusterIP   10.99.119.191   <none>        80/TCP         5m23s
+nginx-nodeport    NodePort    10.105.53.95    <none>        80:30007/TCP   9h
+ubuntu@ip-172-31-13-206:~/k8s-assignment/assign4$ 
