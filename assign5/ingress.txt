@@ -1,0 +1,4 @@
+ubuntu@ip-172-31-13-206:~/k8s-assignment$ kubectl get ing
+NAME    CLASS    HOSTS             ADDRESS   PORTS   AGE
+nginx   <none>   intellipaat.com             80      3h35m
+ubuntu@ip-172-31-13-206:~/k8s-assignment$ 
