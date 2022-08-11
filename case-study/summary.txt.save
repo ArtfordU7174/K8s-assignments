@@ -1,2 +1,41 @@
-p
-
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ ls
+Dockerfile  Ingress.yml  apache-clusterIP.yml  apache.yml  custom-clusterIP.yml  custom.yml  summary.txt  website
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ kubectl get po -n artford 
+NAME                                 READY   STATUS    RESTARTS   AGE
+apache-deployment-5f87c58b8b-6sfjh   1/1     Running   0          74m
+apache-deployment-5f87c58b8b-rjzlh   1/1     Running   0          74m
+custom-deployment-685f57b68f-dzdzk   1/1     Running   0          73m
+custom-deployment-685f57b68f-whrm4   1/1     Running   0          73m
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ kubectl get svc -n artford 
+NAME                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+apache-deployment   ClusterIP   10.100.105.247   <none>        80/TCP    64m
+custom-deployment   ClusterIP   10.105.151.202   <none>        80/TCP    61m
+new-apache          ClusterIP   10.97.114.83     <none>        80/TCP    179m
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ kubectl get ing -n artford 
+NAME            CLASS    HOSTS             ADDRESS   PORTS   AGE
+apache-custom   <none>   intellipaat.com             80      46m
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ kubectl get svc --all-namespaces
+NAMESPACE          NAME                                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+artford            apache-deployment                    ClusterIP   10.100.105.247   <none>        80/TCP                       67m
+artford            custom-deployment                    ClusterIP   10.105.151.202   <none>        80/TCP                       64m
+artford            new-apache                           ClusterIP   10.97.114.83     <none>        80/TCP                       3h2m
+calico-apiserver   calico-api                           ClusterIP   10.107.241.158   <none>        443/TCP                      3d10h
+calico-system      calico-kube-controllers-metrics      ClusterIP   10.100.20.151    <none>        9094/TCP                     3d10h
+calico-system      calico-typha                         ClusterIP   10.107.134.69    <none>        5473/TCP                     3d10h
+default            kubernetes                           ClusterIP   10.96.0.1        <none>        443/TCP                      3d10h
+ingress-nginx      ingress-nginx-controller             NodePort    10.106.148.67    <none>        80:32016/TCP,443:30526/TCP   28h
+ingress-nginx      ingress-nginx-controller-admission   ClusterIP   10.104.77.21     <none>        443/TCP                      28h
+intellipaat        nginx-nodeport                       NodePort    10.105.53.95     <none>        80:30007/TCP                 2d7h
+kube-system        kube-dns                             ClusterIP   10.96.0.10       <none>        53/UDP,53/TCP,9153/TCP       3d10h
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ curl  10.105.151.202
+<html><body><h1>It works!</h1></body></html>
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ curl 10.100.105.247
+<html>
+<head>
+<title> Intellipaat </title>
+</head>
+<body style = "background-image:url('images/github3.jpg'); background-size: 100%">
+<h2 ALIGN=CENTER>Hello world!</h2>
+</body>
+</html>
+ubuntu@ip-172-31-13-206:~/k8s-assignment/case-study$ 
